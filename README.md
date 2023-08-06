@@ -37,3 +37,7 @@ Here are some additional benefits of using miles traveled per branch visit data 
 Improve customer satisfaction: By making it easier for customers to do their banking without having to travel to a branch, banks can improve customer satisfaction. This can lead to increased customer loyalty and profitability.
 Reduce operating costs: By reducing the number of miles traveled by customers and employees, banks can reduce their operating costs. This can lead to increased profits or lower fees for customers.
 Improve the environment: By reducing their carbon footprint, banks can help to improve the environment. This can make the community a more sustainable place to live and work.
+
+Increased transparency: By collecting and reporting on miles traveled per branch visit data, banks can increase transparency with their customers and stakeholders. This can help to build trust and credibility with customers, and it can also help to attract new customers who are looking for sustainable businesses to support.
+Improved decision-making: By having access to miles traveled per branch visit data, banks can make better decisions about where to place branches, how to offer online banking services, and how to encourage customers to use sustainable transportation. This can lead to a more efficient and sustainable banking operation.
+Compliance with regulations: In some jurisdictions, banks are required to reduce their carbon footprint. By using miles traveled per branch visit data, banks can demonstrate that they are taking steps to comply with these regulations.
