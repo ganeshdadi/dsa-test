@@ -1,0 +1,17 @@
+graph TD;
+    A1["Customer A LLM"] -->|Requests| B["Bank LLM"];
+    A2["Customer B LLM"] -->|Requests| B;
+    
+    B -->|Authentication & Behavior Analysis| C["Authentication & Behavior Fingerprinting"];
+    B -->|Access Control| D["Data Isolation & Access Control"];
+    
+    C -->|Verify & Authenticate| E["Secure API Gateway"];
+    D -->|Enforce Access Restrictions| E;
+    
+    E -->|Fetch Data| F1["Customer A Data"];
+    E -->|Fetch Data| F2["Customer B Data"];
+    
+    B -->|Log Requests| G["Audit & Monitoring System"];
+    G -->|Analyze Anomalies| H["Fraud Detection Engine"];
+    
+    H -->|Flag Suspicious Activity| B;
