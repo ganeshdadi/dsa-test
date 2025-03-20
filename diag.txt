@@ -15,3 +15,31 @@ graph TD;
     G -->|Analyze Anomalies| H["Fraud Detection Engine"];
     
     H -->|Flag Suspicious Activity| B;
+
+
+graph TD;
+    %% Customer LLMs interacting with Bank LLM
+    A1["Customer A LLM"] -->|Requests| B["Bank LLM"];
+    A2["Customer B LLM"] -->|Requests| B;
+    
+    %% Bank LLM enforcing authentication and access control
+    B -->|Verify & Authenticate| C["Authentication & Behavior Fingerprinting"];
+    B -->|Access Control| D["Data Isolation & Access Control"];
+    
+    %% Data isolation ensuring each customer LLM accesses only its own data
+    C -->|Validate Identity| E["Secure API Gateway"];
+    D -->|Enforce Isolation| E;
+    
+    E -->|Access Allowed| F1["Customer A Data"];
+    E -->|Access Allowed| F2["Customer B Data"];
+    
+    %% Unauthorized access prevention
+    A1 -.->|Access Denied| F2;
+    A2 -.->|Access Denied| F1;
+    
+    %% Monitoring & Fraud Detection
+    B -->|Log Requests| G["Audit & Monitoring System"];
+    G -->|Analyze Anomalies| H["Fraud Detection Engine"];
+    
+    H -->|Flag Unauthorized Attempts| B;
+
