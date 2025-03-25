@@ -1,1 +1,83 @@
 test
+Anomaly Detection Flow for Behavioral Fingerprint Authentication
+
+This process ensures continuous monitoring and fraud prevention when a customer LLM interacts with the Bank LLM.
+
+1️⃣ Fingerprint Registration (Onboarding Phase)
+
+The Customer LLM is onboarded by capturing its behavioral fingerprint (parameters like temperature, top_k, top_p, response length, frequent tokens, etc.).
+
+The fingerprint is stored in a vector database for future comparison.
+
+
+2️⃣ Continuous Monitoring During Conversations
+
+Every interaction is compared against the original fingerprint.
+
+The system calculates similarity scores to detect deviations.
+
+If an anomaly is detected, security mechanisms are triggered.
+
+
+
+---
+
+📌 Flow Diagram (Mermaid Code)
+
+Here’s the Mermaid.js code to visualize the anomaly detection flow:
+
+graph TD;
+    A["Customer LLM Sends Request to Bank LLM"] --> B["Extract Behavioral Parameters"];
+    B --> C["Compare with Stored Fingerprint"];
+    
+    C -->|Fingerprint Match| D["Grant Access to Customer Data"];
+    C -->|Deviation Detected| E["Anomaly Score Calculation"];
+
+    E -->|Low Risk (Minor Deviation)| F["Log and Continue"];
+    E -->|Medium Risk (Suspicious Change)| G["Trigger Multi-Factor Authentication"];
+    E -->|High Risk (Major Deviation)| H["Block Session & Alert Security"];
+    
+    H --> I["Fraud Detection Engine Logs Incident"];
+    G --> J["Send Challenge Questions to Customer LLM"];
+    J --> K["Validate Customer Response"];
+    
+    K -->|Valid Response| D;
+    K -->|Invalid Response| H;
+
+
+---
+
+📌 Anomaly Score Calculation
+
+The system calculates an Anomaly Score based on:
+
+Semantic similarity drift (e.g., cosine similarity of embeddings)
+
+Change in response length, token patterns
+
+Response time deviations
+
+Unexpected topic shifts
+
+
+
+📌 Example Scenarios:
+
+1. Minor Deviation: A slight variation in temperature → Just log the event.
+
+
+2. Medium Risk: Different sentence structure than usual → Trigger Multi-Factor Authentication (MFA).
+
+
+3. High Risk: A drastic change in frequent tokens, sudden response slowdown → Block access & alert security.
+
+
+
+
+---
+
+📌 How This Helps Prevent LLM Fraud?
+
+✅ Detects LLM Impersonation (Attackers trying to spoof a legitimate LLM)
+✅ Stops prompt injection-based fraud (Tricking the Bank LLM into revealing unauthorized data)
+✅ Prevents access token hijacking (Even if an attacker steals an API key, they can't mimic the real LLM’s behavior)
